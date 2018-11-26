@@ -31,7 +31,7 @@ rickyL -- 2018-11-20 10:47PM
 
 rickyL -- 2018-11-22 10:08PM
 --------------------------------------------------------------
-- Made appropriate changes to design.pdf including: 
+Made appropriate changes to design.pdf including: 
 - Clarified what ISS means
 - Stated quotas for each API we're using
 - Put interactions in the beginning to introduce our idea 

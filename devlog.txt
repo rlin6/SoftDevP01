@@ -55,3 +55,10 @@ mohammedU -- 2018-11-27 12:35PM
 - Fixed table creation in database
 - Added .gitignore and cleaned repo
 ==============================================================
+
+SophiaX -- 2018-11-27 12:36PM
+--------------------------------------------------------------
+- Added base.html, login.html, and signup.html in their basic forms
+- Touched all the other necessary html files
+- Changed block content to block body to keep consistency
+==============================================================

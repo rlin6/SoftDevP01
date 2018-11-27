@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<form action = "/auth" method = "POST">
+  <p>Username: <input type = "text" name = "user" required></p>
+  <p>Password: <input type = "text" name = "pwd" required></p>
+</form>
+{% endblock %}

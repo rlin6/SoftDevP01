@@ -1,8 +1,8 @@
 #BooStRadley - Ricky Lin, Matthew Ming, Mohammed Uddin, Sophia Xia
 
-from flask import Flask, render_template, session, redirect, request, url_for, flash 
+from flask import Flask, render_template, session, redirect, request, url_for, flash
 from util import auth
-#import os 
+#import os
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def index():
 
     if 'user' in session:
         return redirect('/track')
-    
+
     return render_template("index.html")
 
 @app.route("/signup")
@@ -21,7 +21,7 @@ def signup():
 
     if 'user' in session:
         return redirect('/track')
-    
+
     return render_template("signup.html")
 
 @app.route("/auth", methods = ['POST','GET'])
@@ -63,4 +63,3 @@ def places():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

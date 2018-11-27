@@ -1,11 +1,11 @@
 import sqlite3
 
-DB_FILE = "..data/database.db"
+DB_FILE = "data/database.db"
 
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
 
-command = "CREATE TABLE IF NOT EXISTS accts(id INTEGER PRIMARY KEY, user TEXT, password TEXT);"
+command = "CREATE TABLE IF NOT EXISTS accts(id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT);"
 c.execute(command)
 
 command = "CREATE TABLE IF NOT EXISTS places(user TEXT, time TEXT, lat FLOAT, long FLOAT, address TEXT);"

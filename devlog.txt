@@ -44,3 +44,8 @@ mohammedU -- 2018-11-26 4:10PM
 - Added creating database tables
 - Added methods to register/login
 ==============================================================
+
+rickyL -- 2018-11-26 9:18PM
+--------------------------------------------------------------
+- Connected methods for register and login with app.py 
+==============================================================

@@ -1,6 +1,7 @@
 #BooStRadley - Ricky Lin, Matthew Ming, Mohammed Uddin, Sophia Xia
 
 from flask import Flask, render_template, session, redirect, request, url_for, flash 
+from util import auth
 #import os 
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def signup():
     return render_template("signup.html")
 
 @app.route("/auth", methods = ['POST','GET'])
-def auth():
+def authen():
 
     message = ''
 

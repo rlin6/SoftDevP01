@@ -1,6 +1,6 @@
 #BooStRadley - Ricky Lin, Matthew Ming, Mohammed Uddin, Sophia Xia
 
-from flask import Flask, render_template, session, redirect
+from flask import Flask, render_template, session, redirect, request, url_for, flash 
 #import os 
 
 app = Flask(__name__)
@@ -34,10 +34,15 @@ def auth():
     if "conf" in request.form.keys():
         message = auth.register(request.form['user'], request.form['pwd'], request.form['conf'])
 
-    else: message = auth.CheckInfo(request.form['user'], request.form['pwd'])
+    else: message = auth.login(request.form['user'], request.form['pwd'])
 
     if message in ["Account creation successful", "Login Successful"]:
-        session['user'] = re
+        session['user'] = request.form['user']
+        return redirect('/track')
+
+    else:
+        flash(message)
+        return redirect(request.referrer or '/')
 
 @app.route("/track")
 def track():

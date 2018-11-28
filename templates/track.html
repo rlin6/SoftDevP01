@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Tracking {% endblock %}
+
+{% block body %}
+
+<center>
+  {% for item in text %}
+  {{item.displayString}}
+  <br>
+  {% endfor %}
+  <img src="{{image}}">
+</center>
+
+{% endblock %}

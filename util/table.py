@@ -8,10 +8,10 @@ c = db.cursor()
 command = "CREATE TABLE IF NOT EXISTS accts(id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT);"
 c.execute(command)
 
-command = "CREATE TABLE IF NOT EXISTS places(user TEXT, time TEXT, lat FLOAT, long FLOAT, address TEXT);"
+command = "CREATE TABLE IF NOT EXISTS places(user TEXT, times TEXT, lat FLOAT, long FLOAT, address TEXT);"
 c.execute(command)
 
-command = "CREATE TABLE IF NOT EXISTS weather(user TEXT, time TEXT, summary TEXT, high FLOAT, low FLOAT, alerts TEXT);"
+command = "CREATE TABLE IF NOT EXISTS weather(user TEXT, times TEXT, summary TEXT, high FLOAT, low FLOAT, alerts TEXT);"
 c.execute(command)
 
 command = "CREATE TABLE IF NOT EXISTS attract(user TEXT, times TEXT, attraction TEXT);"

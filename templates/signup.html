@@ -4,8 +4,11 @@
 
 {% block body %}
 <form action = "/auth" method = "POST">
+  <center>
   <p>Username: <input type = "text" name = "user" required></p>
   <p>Password: <input type = "text" name = "pwd" required></p>
   <p>Confirmation: <input type = "text" name = "conf" required></p>
+  <p><input type = "submit" value = "Submit" name = "sub1"></p>
+  </center>
 </form>
 {% endblock %}

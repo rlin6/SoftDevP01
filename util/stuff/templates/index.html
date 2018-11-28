@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<head>
+  <title>ISS DEMO</title>
+</head>
+
+<body>
+<center>
+<h2>New adventures in RESTful APIs:</h2>
+<br>Places:<br>
+{% for item in text %}
+{{item.displayString}}
+<br>
+{% endfor %}
+<img src="{{image}}">
+<hr>
+</center>
+</body>
+
+</html>

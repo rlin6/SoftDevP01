@@ -27,16 +27,16 @@ def login(user, pwd):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    for i in c.execute("SELECT password FROM accts WHERE username = ?",(user,)):
+    for i in c.execute("SELECT password FROM accts WHERE user = ?",(user,)):
         if i[0] == pwd:
             db.close()
-            return "Login successful"
+            return "Login Successful"
 
         else:
             db.close()
             return "Wrong password"
 
     db.close()
-    return "Login failed"
+    return "No Such Username Found"
 
 print(register("123","123","123")) #expect account creation successful

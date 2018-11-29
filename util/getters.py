@@ -16,7 +16,7 @@ def get_weathers(user):
     c = db.cursor()
     command = "SELECT * FROM weather WHERE user = ?"
     args = user
-    c.execute(command,user)
+    c.execute(command,args)
     db.close()
 
 def add_attraction(user,times,attraction):

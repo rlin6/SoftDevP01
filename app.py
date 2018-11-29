@@ -6,17 +6,17 @@ import urllib
 
 from flask import Flask, render_template, session, redirect, request, url_for, flash
 
-from util import auth, adders, getters
+from util import auth
 
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
 
 key = "kRAtgnsgZTOsTguZs5C7s5rw3wnAM1Mi"
-amount = 10 #number of places to return
+amount = 10 #number of places to return 
 
 def getLat():
-
+    
     #get ISS latitude
     ISS = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(ISS)
@@ -24,20 +24,20 @@ def getLat():
 
     lat=obj['iss_position']['latitude']
     #lat= str(40.712775)
-
+    
     return lat
 
 def getLong():
-
-    #get ISS longtitude
+    
+    #get ISS longtitude 
     ISS="http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(ISS)
     obj = json.loads(response.read())
 
     long=obj['iss_position']['longitude']
     #long =str(-74.005973)#placeholder
-
-    return long
+    
+    return long 
 
 @app.route("/")
 def index():
@@ -79,8 +79,8 @@ def authen():
 @app.route("/track")
 def track():
 
-    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()
-
+    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()+"&zoom=6&size=1920,300@2x"
+    
     return render_template("track.html", image = base)
 
 @app.route("/places")
@@ -103,3 +103,4 @@ def account():
 
 if __name__ == '__main__':
     app.run(debug=True)
+

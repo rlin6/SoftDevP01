@@ -93,3 +93,8 @@ sophiaX -- 2018-11-29 12:28PM
 - added account, logout, and refresh buttons
 - edit base template to show correct navbar depending on session
 ==============================================================
+
+mingM -- 2018-11-28 10:12PM
+--------------------------------------------------------------
+- Modified ISS display
+==============================================================

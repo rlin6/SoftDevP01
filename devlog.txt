@@ -73,6 +73,11 @@ mingM -- 2018-11-28 11:58AM
 - Added tracking functionality to app.py
 ==============================================================
 
+sophiaX -- 2018-11-28 12:36PM
+--------------------------------------------------------------
+- Added base extensions, submit buttons, and basic tracking html
+==============================================================
+
 rickyL -- 2018-11-28 10:05PM
 --------------------------------------------------------------
 - Finished logging in and tracking functionality 
@@ -81,4 +86,10 @@ rickyL -- 2018-11-28 10:05PM
 mingM -- 2018-11-28 10:12PM
 --------------------------------------------------------------
 - Removed temporary folder holding initial tracking code.
+==============================================================
+
+sophiaX -- 2018-11-29 12:28PM
+--------------------------------------------------------------
+- added account, logout, and refresh buttons
+- edit base template to show correct navbar depending on session
 ==============================================================

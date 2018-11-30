@@ -95,7 +95,12 @@ def places():
 
 @app.route("/weather")
 def weather():
-    return render_template("weather.html")
+    key="647d4c51b198137da2da622c301ce39d"
+    weather = "https://api.darksky.net/forecast/"+key+"/"+getLat()+","+getLong()
+    response = urllib.request.urlopen(weather)
+    obj = json.loads(response.read())
+    print (weather)
+    return render_template("weather.html",day=obj['hourly']['summary'])
 
 @app.route("/account")
 def account():

@@ -19,7 +19,7 @@ def get_weathers(user):
     c.execute(command,args)
     db.close()
 
-def add_attraction(user,times,attraction):
+def get_attraction(user,times,attraction):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT * FROM attract WHERE user = ?"
@@ -27,7 +27,7 @@ def add_attraction(user,times,attraction):
     c.execute(command,args)
     db.close()
 
-def add_achievement(user,accomplishment):
+def get_achievement(user,accomplishment):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT * FROM achievements WHERE user = ?"

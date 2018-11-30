@@ -3,6 +3,10 @@ import sqlite3
 
 DB_FILE = "data/database.db"
 
+def save(user,times,category):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
 def add_place(user,times,lat,long,address):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()

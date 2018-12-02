@@ -9,15 +9,15 @@ Sophia Xia
 
 Period 6 Software Development
 
-##Overview 
+## Overview 
 
 ISS World Tour uses the coordinates of the International Space Station to display its location on a map. The website also shows you the weather conditions in the area and nearby attractions. As the user, you can save the location, weather, or attractions to try to earn achievements. You are able to use the site without signing up, but you would not be able to save anything. 
 
-##Site Guide 
+## Site Guide 
 
 After going on the site, you have the option to signup, sign in, or go straight to the site. Signup lets you create an account and sign in logs you in. If you are not logged in, you can view the tracking page where you can see the ISS location, view the weather there, and look at the attractions. If you are logged in, you can do all of this in addition to saving the details to your account page. 
 
-##API Keys
+## API Keys
 
 You do not need a key for the ISS API; you only need the url: http://open-notify.org/Open-Notify-API/ISS-Location-Now/ 
 
@@ -25,7 +25,7 @@ For DarkSky API, you have to sign up with an email. Then, click the link that is
 
 For MapQuest API, you have to sign up for an account on the website. Afte making your account, you get an unique key for that account. The quota is 15000 requests per month: https://developer.mapquest.com/documentation/traffic-api/
 
-##Dependencies
+## Dependencies
 
 Note:
 
@@ -65,7 +65,7 @@ Installing Flask:
 pip3 install flask
 ```
 
-##Running the app
+## Running the app
 
 After cloning the repository from github, activate your virtual environment. Move into the repository and then run the program by using the following command:
 

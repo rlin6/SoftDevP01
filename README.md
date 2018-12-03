@@ -30,6 +30,7 @@ For MapQuest API, you have to sign up for an account on the website. Afte making
 Note:
 
 Python 3 is used
+
 On a Linux, sudo access is required to install packages and dependencies  
 
 You need to create a virtual environment and then install Wheel and Flask.

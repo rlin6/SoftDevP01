@@ -3,33 +3,11 @@ import sqlite3
 
 DB_FILE = "data/database.db"
 
-def save(user,times,category):
+def add_save(user,times,lat,long,address,summary,high,low,alerts,attraction):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-
-def add_place(user,times,lat,long,address):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    command ="INSERT INTO places (user,times,lat,long,address) VALUES (?,?,?,?,?)"
-    args = (user,times,lat,long,address)
-    c.execute(command,args)
-    db.commit()
-    db.close()
-
-def add_weather(user,times,summary,high,low,alerts):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    command = "INSERT INTO weather (user,times,summary,high,low,address) VALUES (?,?,?,?,?,?)"
-    args = (user,times,summary,high,low,address)
-    c.execute(command,args)
-    db.commit()
-    db.close()
-
-def add_attraction(user,times,attraction):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    command = "INSERT INTO attract (user,times,attraction) VALUES (?,?,?)"
-    args = (user,times,attraction)
+    command ="INSERT INTO saves (user,times,lat,long,address,summary,high,low,alerts,attraction) VALUES (?,?,?,?,?,?,?,?,?,?)"
+    args = (user,times,lat,long,address,summary,high,low,alerts,attraction)
     c.execute(command,args)
     db.commit()
     db.close()

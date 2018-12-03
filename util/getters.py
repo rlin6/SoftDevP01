@@ -3,34 +3,20 @@ import sqlite3
 
 DB_FILE = "data/database.db"
 
-def get_places(user):
+def get_saves(user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    command ="SELECT * FROM places WHERE user = ?"
+    command ="SELECT * FROM saves WHERE user = ?"
     args = user
-    c.execute(command,args)
+    all_saves = c.execute(command,args).fetchall()
     db.close()
+    return all_saves
 
-def get_weathers(user):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    command = "SELECT * FROM weather WHERE user = ?"
-    args = user
-    c.execute(command,args)
-    db.close()
-
-def get_attraction(user,times,attraction):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    command = "SELECT * FROM attract WHERE user = ?"
-    args = user
-    c.execute(command,args)
-    db.close()
-
-def get_achievement(user,accomplishment):
+def get_achievements(user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT * FROM achievements WHERE user = ?"
     args = user
-    c.execute(command,args)
+    all_achievements = c.execute(command,args).fetchall()
     db.close()
+    return all_achievements

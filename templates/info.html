@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} info {% endblock %}
+
+{% block body %}
+<center>
+  <h1> Search Places </h1>
+  {% for each in text %}
+  {{each}}<br>
+  {% endfor %}
+  <h1> Weather </h1>
+  {{day}}
+<br>
+</center>
+{% endblock %}

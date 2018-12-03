@@ -118,3 +118,10 @@ mohammedU -- 2018-12-03 12:27PM
 --------------------------------------------------------------
 - Fixed adders, getters, and tables
 ==============================================================
+
+sophiaX -- 2018-12-03 05:18PM
+--------------------------------------------------------------
+- moved weather and places to info.html
+  -edited base.html accordingly
+- began overriding the default bootstrap CSS
+==============================================================

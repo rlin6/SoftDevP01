@@ -6,12 +6,22 @@
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel = "stylesheet"
-	  type = "text/css"
-	  href = "style.css">
-
+    <!--<link rel = "stylesheet" type = "text/css" href = "custom.css">-->
+    <style>
+      .navbar-default{
+      background-color: #A1D2CE;
+      font-size: 16px;
+      border: 0;
+      border-radius: 0px;
+      color: black;
+      }
+      .navbar-default .navbar-fnt{
+      color: black;
+      }
+    </style>
+    
     {% block head %}
     <title> {% block title %}{% endblock %} ISS World Tour</title>
     {% endblock %}
@@ -31,8 +41,7 @@
 	<div class="nav navbar-nav">
 	  <ul class="nav navbar-nav">
 	    <li><a href="track">Tracking</a></li>
-	    <li><a href="weather">Weather</a></li>
-	    <li><a href="places">Search Places</a></li>
+	    <li><a href="info">Info</a></li>
 	  </ul>
 	</div>
 	

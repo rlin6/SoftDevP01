@@ -83,24 +83,21 @@ def track():
 
     return render_template("track.html", image = base)
 
-@app.route("/places")
-def places():
+@app.route("/info")
+def info():
 
     data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + getLong() + "%2C" + getLat() + "%2C1000"
     response = urllib.request.urlopen(data)
     info = json.loads(response.read())
     description = info["results"]
-
-    return render_template("places.html", text = description)
-
-@app.route("/weather")
-def weather():
-    key="647d4c51b198137da2da622c301ce39d"
-    weather = "https://api.darksky.net/forecast/"+key+"/"+getLat()+","+getLong()
+    secondkey="647d4c51b198137da2da622c301ce39d"
+    weather = "https://api.darksky.net/forecast/"+secondkey+"/"+getLat()+","+getLong()
     response = urllib.request.urlopen(weather)
     obj = json.loads(response.read())
     print (weather)
-    return render_template("weather.html",day=obj['hourly']['summary'])
+    if description == []:
+        description=["There are no registered attractions at this current location."]
+    return render_template("info.html",text = description,day=obj['hourly']['summary'])
 
 @app.route("/account")
 def account():

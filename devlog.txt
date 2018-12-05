@@ -156,9 +156,13 @@ mohammedU -- 2018-12-05 02:35AM
 - made stuff be sent to accounts and accounts shows stuff
 ==============================================================
 
-
 sophiaX -- 2018-12-05 02:40AM
 --------------------------------------------------------------
 - moved css file to static folder
   - now external css file overrides successfully
+==============================================================
+
+rickyL -- 2018-12-05 12:35PM
+--------------------------------------------------------------
+- Made refreshing of tracking page work
 ==============================================================

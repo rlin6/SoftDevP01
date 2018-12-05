@@ -151,6 +151,12 @@ sophiaX -- 2018-12-05 02:30AM
 - attempt to get external css file to override bootstrap
 ==============================================================
 
+mohammedU -- 2018-12-05 02:35AM
+--------------------------------------------------------------
+- made stuff be sent to accounts and accounts shows stuff
+==============================================================
+
+
 sophiaX -- 2018-12-05 02:40AM
 --------------------------------------------------------------
 - moved css file to static folder

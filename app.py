@@ -18,8 +18,10 @@ with open("data/keys.json") as f:
 
 #key = "kRAtgnsgZTOsTguZs5C7s5rw3wnAM1Mi"
 amount = 10 #number of places to return
+currLat = ''
+currLong = ''
 
-def getLat():
+def refresh():
 
     #get ISS latitude
     ISS = "http://api.open-notify.org/iss-now.json"
@@ -28,19 +30,26 @@ def getLat():
 
     lat=obj['iss_position']['latitude']
     #lat= str(40.712775)
-    return lat
-
-def getLong():
 
     #get ISS longtitude
-    ISS="http://api.open-notify.org/iss-now.json"
+    ISS = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(ISS)
     obj = json.loads(response.read())
 
     long=obj['iss_position']['longitude']
     #long =str(-74.005973)#placeholder
-    return long
 
+    global currLat
+    global currLong
+    
+    #print( currLat)
+    currLat = lat
+    #print(currLat)
+    
+    #print(currLong)
+    currLong = long
+    #print(currLong)
+    
 @app.route("/")
 def index():
 
@@ -60,6 +69,9 @@ def signup():
 @app.route("/auth", methods = ['POST','GET'])
 def authen():
 
+    global currLat
+    global currLong
+
     message = ''
 
     if request.method == 'GET' or not ('user' in request.form.keys()):
@@ -72,6 +84,7 @@ def authen():
 
     if message in ["Account creation successful", "Login Successful"]:
         session['user'] = request.form['user']
+        refresh()
         return redirect('/track')
 
     else:
@@ -81,9 +94,12 @@ def authen():
 @app.route("/track")
 def track():
 
-    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()+"&locations="+getLat() + "," + getLong()+"&zoom=6&size=760,310@2x"
+    global currLong
+    global currLat
 
-    return render_template("track.html", lat = getLat(), lon = getLong(), image = base)
+    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + currLat + "," + currLong +"&locations="+ currLat + "," + currLong +"&zoom=6&size=760,310@2x"
+
+    return render_template("track.html", lat = currLat, lon = currLong, image = base)
 
 @app.route("/info")
 def info():
@@ -104,6 +120,16 @@ def info():
 @app.route("/account")
 def account():
     return render_template("account.html")
+
+@app.route("/update")
+def update():
+    
+    global currLat
+    global currLong
+
+    refresh()
+
+    return redirect("/track")
 
 if __name__ == '__main__':
     app.run(debug=True)

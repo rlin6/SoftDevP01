@@ -29,6 +29,8 @@ For DarkSky API, you have to sign up with an email. Then, click the link that is
 
 For MapQuest API, you have to sign up for an account on the website. Afte making your account, you get an unique key for that account. The quota is 15000 requests per month: https://developer.mapquest.com/documentation/traffic-api/
 
+Once you have gotten your own keys, go to keys.json in the data folder and replace each respective database key-value pair strings with your key value. 
+
 ## Dependencies
 
 Note:

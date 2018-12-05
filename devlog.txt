@@ -140,3 +140,13 @@ mingM -- 2018-12-04 11:53PM
 --------------------------------------------------------------
 - Deleted extra file and added external key acquisition
 ==============================================================
+
+sophiaX -- 2018-12-05 02:30AM
+--------------------------------------------------------------
+- added lat long coordinates to tracking page
+- changed the navigation bar
+- tracking map now adjusts size according to window size
+  - keeps it's proportions
+- added working internal css that overrides bootstrap
+- attempt to get external css file to override bootstrap
+==============================================================

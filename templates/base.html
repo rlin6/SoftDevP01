@@ -3,25 +3,36 @@
 <html>
   
   <head>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/custom.css">-->
 
-    <!--<link rel = "stylesheet" type = "text/css" href = "custom.css">-->
     <style>
       .navbar-default{
       background-color: #A1D2CE;
       font-size: 16px;
       border: 0;
       border-radius: 0px;
-      color: black;
       }
-      .navbar-default .navbar-fnt{
-      color: black;
+      .navbar-default .navbar-brand,
+      .navbar-default .navbar-brand:hover,
+      .navbar-default .navbar-brand > a{
+      color: #5497A7;
+      font-weight: bold;
+      }
+      .navbar-default .navbar-nav > li > a{
+      color: #5497A7;
+      }
+      .navbar-default .navbar-nav > li > a:hover,
+      .navbar-default .navbar-nav > li > a:focus {
+      color: #FFF;
+      }
+      img{
+      width: 100%;
+      height: auto;
       }
     </style>
-    
     {% block head %}
     <title> {% block title %}{% endblock %} ISS World Tour</title>
     {% endblock %}
@@ -29,14 +40,13 @@
   </head>
 
   <body>
-
+    
     {% block navbar %}
     <nav class="navbar navbar-default">
-
       <!-- NAVBAR-FIXED-TOP -->
       <div class="container-fluid">
 	<div class="navbar-header">
-	  <a class="navbar-brand" href="#">ISS World Tour</a>
+	  <a class="navbar-brand" >ISS World Tour</a>
 	</div>
 	<div class="nav navbar-nav">
 	  <ul class="nav navbar-nav">
@@ -63,14 +73,33 @@
     </nav>
     {% endblock %}
 
-    {% block body %}
-    CONTENT
-    {% endblock %}
+    <!-- PAGE-CONTENT -->
+    <div class = "container-fluid">
+      <!-- TRACKING-PAGE -->
+      <div class = "track">
+	{% block track %}
+	{% endblock %}
+      </div>
+      <!-- INFO-PAGE -->
+      <div class = "info">
+	{% block info %}
+	{% endblock %}
+      </div>
+      <!-- ALL-OTHER-PAGES -->
+      <div class = "body">
+	{% block body %}
+	{% endblock %}
+      </div>
+    </div>
 
   </body>
 
-  {% block footer %}
-  &copy; copyright 2099 by BooStradley
-  {% endblock %}
-  
+  <footer class = "footer">
+    <div class = "container">
+      {% block footer %}
+      &copy; copyright 2099 by BooStradley
+      {% endblock %}
+    </div>
+  </footer>
+
 </html>

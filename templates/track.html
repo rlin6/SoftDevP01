@@ -2,13 +2,9 @@
 
 {% block title %} Tracking {% endblock %}
 
-{% block body %}
-
+{% block track %}
+({{lat}}, {{lon}})
 <center>
-  {% for item in text %}
-  {{item.displayString}}
-  <br>
-  {% endfor %}
   <img src="{{image}}">
 </center>
 

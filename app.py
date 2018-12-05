@@ -83,7 +83,7 @@ def track():
 
     base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()+"&locations="+getLat() + "," + getLong()+"&zoom=6&size=760,310@2x"
 
-    return render_template("track.html", image = base)
+    return render_template("track.html", lat = getLat(), lon = getLong(), image = base)
 
 @app.route("/info")
 def info():

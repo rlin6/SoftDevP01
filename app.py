@@ -11,7 +11,7 @@ from util import auth, adders, getters
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
-with open("data/file.json") as f:
+with open("data/keys.json") as f:
     data = json.loads(f.read())
     key=data['map_key']
     secondkey=data['weather_key']

@@ -11,8 +11,12 @@ from util import auth, adders, getters
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
+with open("data/file.json") as f:
+    data = json.loads(f.read())
+    key=data['map_key']
+    secondkey=data['weather_key']
 
-key = "kRAtgnsgZTOsTguZs5C7s5rw3wnAM1Mi"
+#key = "kRAtgnsgZTOsTguZs5C7s5rw3wnAM1Mi"
 amount = 10 #number of places to return
 
 def getLat():
@@ -24,7 +28,6 @@ def getLat():
 
     lat=obj['iss_position']['latitude']
     #lat= str(40.712775)
-
     return lat
 
 def getLong():
@@ -36,7 +39,6 @@ def getLong():
 
     long=obj['iss_position']['longitude']
     #long =str(-74.005973)#placeholder
-
     return long
 
 @app.route("/")
@@ -90,7 +92,7 @@ def info():
     response = urllib.request.urlopen(data)
     info = json.loads(response.read())
     description = info["results"]
-    secondkey="647d4c51b198137da2da622c301ce39d"
+    #secondkey="647d4c51b198137da2da622c301ce39d"
     weather = "https://api.darksky.net/forecast/"+secondkey+"/"+getLat()+","+getLong()
     response = urllib.request.urlopen(weather)
     obj = json.loads(response.read())

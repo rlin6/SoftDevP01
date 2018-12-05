@@ -106,7 +106,7 @@ def weather():
 def account():
     user = request.form['user']
     saves = getters.get_saves(user)
-    return render_template("account.html")
+    return render_template("account.html",saves=saves)
 
 if __name__ == '__main__':
     app.run(debug=True)

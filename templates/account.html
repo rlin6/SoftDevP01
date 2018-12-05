@@ -3,4 +3,13 @@
 {% block title %} account {% endblock %}
 
 {% block body %}
+
+<!-- css-ify this and make it work and organize it and idk-->
+<table>
+	<tr><th>Time</th><th>Lat</th><th>Long</th><th>Address</th><th>Summary</th><th>High</th><th>Low</th><th>Alert</th><th>Attraction</th></tr>
+	{% for save in saves %}
+	<tr><td>save[1]</td><td>save[2]</td><td>save[3]</td><td>save[4]</td><td>save[5]</td><td>save[6]</td><td>save[7]</td><td>save[8]</td><td>save[9]</td></tr>
+	{% endfor %}
+</table>
+
 {% endblock %}

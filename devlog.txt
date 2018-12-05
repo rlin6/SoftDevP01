@@ -150,3 +150,9 @@ sophiaX -- 2018-12-05 02:30AM
 - added working internal css that overrides bootstrap
 - attempt to get external css file to override bootstrap
 ==============================================================
+
+sophiaX -- 2018-12-05 02:40AM
+--------------------------------------------------------------
+- moved css file to static folder
+  - now external css file overrides successfully
+==============================================================

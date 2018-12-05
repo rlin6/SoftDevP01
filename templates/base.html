@@ -6,41 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="css/custom.css">-->
+    <link rel="stylesheet" type="text/css" href="../static/custom.css">
 
-    <style>
-      .navbar-default{
-      background-color: #A1D2CE;
-      font-size: 16px;
-      border: 0;
-      border-radius: 0px;
-      }
-      .navbar-default .navbar-brand,
-      .navbar-default .navbar-brand:hover,
-      .navbar-default .navbar-brand > a{
-      color: #5497A7;
-      font-weight: bold;
-      }
-      .navbar-default .navbar-nav > li > a{
-      color: #5497A7;
-      }
-      .navbar-default .navbar-nav > li > a:hover,
-      .navbar-default .navbar-nav > li > a:focus {
-      color: #FFF;
-      }
-      img{
-      width: 100%;
-      height: auto;
-      }
-    </style>
     {% block head %}
     <title> {% block title %}{% endblock %} ISS World Tour</title>
     {% endblock %}
-
   </head>
 
-  <body>
-    
+  <body>    
     {% block navbar %}
     <nav class="navbar navbar-default">
       <!-- NAVBAR-FIXED-TOP -->
@@ -91,7 +64,6 @@
 	{% endblock %}
       </div>
     </div>
-
   </body>
 
   <footer class = "footer">

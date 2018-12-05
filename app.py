@@ -79,7 +79,7 @@ def authen():
 @app.route("/track")
 def track():
 
-    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()+"&zoom=6&size=1920,300@2x"
+    base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + getLat() + "," + getLong()+"&locations="+getLat() + "," + getLong()+"&zoom=6&size=760,310@2x"
 
     return render_template("track.html", image = base)
 

@@ -4,6 +4,7 @@ import sqlite3
 DB_FILE = "data/database.db"
 
 def get_saves(user):
+    """Returns all the saves of the user"""
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command ="SELECT * FROM saves WHERE user = " + user
@@ -12,6 +13,7 @@ def get_saves(user):
     return all_saves
 
 def get_achievements(user):
+    """Returns all the achievements of the user"""
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "SELECT * FROM achievements WHERE user = ?"

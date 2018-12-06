@@ -4,7 +4,7 @@ import sqlite3
 DB_FILE = "data/database.db"
 
 def register(user, pwd, conf):
-
+    """Checks to see if the user-password pair is allowed and adds the user to the database"""
     if pwd != conf:
         return "Passwords don't match"
 
@@ -23,7 +23,7 @@ def register(user, pwd, conf):
     return "Account creation successful"
 
 def login(user, pwd):
-
+    """Checks to see if the user and password match"""
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 

@@ -5,6 +5,8 @@ DB_FILE = "data/database.db"
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
 
+"""Create the database if not already created"""
+
 command = "CREATE TABLE IF NOT EXISTS accts(userid INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT)"
 c.execute(command)
 

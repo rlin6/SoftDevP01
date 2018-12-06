@@ -133,7 +133,10 @@ def info():
 
 @app.route("/account")
 def account():
-    return render_template("account.html", SESSION = loggedIn())
+
+    user = request.form['user']
+    saves = getters.get_saves(user)
+    return render_template("account.html", SESSION = loggedIn(), saves = saves)
 
 @app.route("/update")
 def update():

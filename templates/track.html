@@ -2,10 +2,9 @@
 
 {% block title %} Tracking {% endblock %}
 
-{% block track %}
-({{lat}}, {{lon}})
-<center>
+{% block body %}
+<div class = "track">
+  ({{lat}}, {{lon}})
   <img src="{{image}}">
-</center>
-
+</div>
 {% endblock %}

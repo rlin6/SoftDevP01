@@ -30,14 +30,14 @@
 	
 	<ul class="nav navbar-nav navbar-right">
 	  <!-- REGISTER-AND-LOGIN-ICONS -->
-	  {% if SESSION %}
+	  {% if not SESSION %}
 	  <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	  <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	  {% endif %}
 	  <!-- ACCOUNT-AND-LOGOUT-ICONS -->
-	  {% if not SESSION %}
+	  {% if SESSION %}
 	  <li><a href="account"><span class="glyphicon glyphicon-user"></span> Account</a></li>
-	  <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	  <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 	  {% endif %}
 	  <!-- REFRESH -->
 	  <li><a href="update"><span class="glyphicon glyphicon-refresh"></span> </a></li>
@@ -46,26 +46,15 @@
     </nav>
     {% endblock %}
 
-    <!-- PAGE-CONTENT -->
+    <!-- PAGE-CONTENTS -->
     <div class = "container-fluid">
-      <!-- TRACKING-PAGE -->
-      <div class = "track">
-	{% block track %}
-	{% endblock %}
-      </div>
-      <!-- INFO-PAGE -->
-      <div class = "info">
-	{% block info %}
-	{% endblock %}
-      </div>
-      <!-- ALL-OTHER-PAGES -->
       <div class = "body">
-	{% block body %}
-	{% endblock %}
+      {% block body %}
+      {% endblock %}
       </div>
     </div>
   </body>
-
+  
   <footer class = "footer">
     <div class = "container">
       {% block footer %}

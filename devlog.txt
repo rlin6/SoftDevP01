@@ -166,3 +166,12 @@ rickyL -- 2018-12-05 12:35PM
 --------------------------------------------------------------
 - Made refreshing of tracking page work
 ==============================================================
+
+sophiaX -- 2018-12-05 11:21PM
+--------------------------------------------------------------
+- changed info route to use the global variables currLat and currLong
+- added logout feature
+- made the navbar display the correct links depending on user session
+- reformatted base.html and removed the jinja blocks for separate pages
+  - adjusted the other pages accordingly
+==============================================================

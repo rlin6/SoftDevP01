@@ -2,14 +2,14 @@
 
 {% block title %} info {% endblock %}
 
-{% block info %}
-<center>
-  <h1> Search Places </h1>
+{% block body %}
+<div class = "info">
+  <div class = "h1"> Search Places </div>
   {% for each in text %}
   {{each}}<br>
   {% endfor %}
-  <h1> Weather </h1>
+  <div class = "h1"> Weather </div>
   {{day}}
-<br>
-</center>
+  <br>
+</div>
 {% endblock %}

@@ -21,6 +21,11 @@ amount = 10 #number of places to return
 currLat = ''
 currLong = ''
 
+def loggedIn():
+    if 'user' in session:
+        return True
+    return False
+
 def refresh():
 
     #get ISS latitude
@@ -56,7 +61,13 @@ def index():
     if 'user' in session:
         return redirect('/track')
 
-    return render_template("index.html")
+    return render_template("index.html", SESSION = loggedIn())
+
+@app.route("/logout")
+def logout():
+    if 'user' in session:
+        session.pop('user')
+    return redirect('/')
 
 @app.route("/signup")
 def signup():
@@ -64,7 +75,7 @@ def signup():
     if 'user' in session:
         return redirect('/track')
 
-    return render_template("signup.html")
+    return render_template("signup.html", SESSION = loggedIn())
 
 @app.route("/auth", methods = ['POST','GET'])
 def authen():
@@ -99,27 +110,30 @@ def track():
 
     base = "https://www.mapquestapi.com/staticmap/v5/map?key=" + key + "&center=" + currLat + "," + currLong +"&locations="+ currLat + "," + currLong +"&zoom=6&size=760,310@2x"
 
-    return render_template("track.html", lat = currLat, lon = currLong, image = base)
+    return render_template("track.html", lat = currLat, lon = currLong, image = base, SESSION = loggedIn())
 
 @app.route("/info")
 def info():
 
-    data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + getLong() + "%2C" + getLat() + "%2C1000"
+    global currLat
+    global currLong
+
+    data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + currLong + "%2C" + currLat + "%2C1000"
     response = urllib.request.urlopen(data)
     info = json.loads(response.read())
     description = info["results"]
     #secondkey="647d4c51b198137da2da622c301ce39d"
-    weather = "https://api.darksky.net/forecast/"+secondkey+"/"+getLat()+","+getLong()
+    weather = "https://api.darksky.net/forecast/"+secondkey+"/"+currLat+","+currLong
     response = urllib.request.urlopen(weather)
     obj = json.loads(response.read())
     print (weather)
     if description == []:
         description=["There are no registered attractions at this current location."]
-    return render_template("info.html",text = description,day=obj['hourly']['summary'])
+    return render_template("info.html",text = description,day=obj['hourly']['summary'], SESSION = loggedIn())
 
 @app.route("/account")
 def account():
-    return render_template("account.html")
+    return render_template("account.html", SESSION = loggedIn())
 
 @app.route("/update")
 def update():

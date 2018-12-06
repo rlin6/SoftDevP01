@@ -11,6 +11,7 @@ def add_save(user,times,lat,long,address,summary,high,low,alerts,attraction):
     c.execute(command,args)
     db.commit()
     db.close()
+    return True
 
 def add_achievement(user,accomplishment):
     db = sqlite3.connect(DB_FILE)
@@ -20,3 +21,8 @@ def add_achievement(user,accomplishment):
     c.execute(command,args)
     db.commit()
     db.close()
+    return True
+
+print(add_save('123','time','lat','long','address','summary','high','low','alerts','attractions'))
+
+

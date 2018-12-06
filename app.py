@@ -94,8 +94,8 @@ def authen():
     else: message = auth.login(request.form['user'], request.form['pwd'])
 
     if message in ["Account creation successful", "Login Successful"]:
-        session['user'] = request.form['user']
         refresh()
+        session['user'] = request.form['user']
         return redirect('/track')
 
     else:
@@ -134,7 +134,10 @@ def info():
 @app.route("/account")
 def account():
 
-    user = request.form['user']
+    if 'user' not in session:
+        return redirect('/track')
+    
+    user = session['user']
     saves = getters.get_saves(user)
     return render_template("account.html", SESSION = loggedIn(), saves = saves)
 

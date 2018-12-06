@@ -175,3 +175,8 @@ sophiaX -- 2018-12-05 11:21PM
 - reformatted base.html and removed the jinja blocks for separate pages
   - adjusted the other pages accordingly
 ==============================================================
+
+mohammedU -- 2018-12-06 12:10PM
+--------------------------------------------------------------
+- css-ified accounts page
+==============================================================

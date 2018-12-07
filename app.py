@@ -152,7 +152,7 @@ def info():
     low = data['temperatureMin']
     high = data['temperatureMax']
     
-    return render_template("info.html",text = description,day=summary, SESSION = loggedIn())
+    return render_template("info.html",text = description, day = summary, SESSION = loggedIn())
 
 @app.route("/account")
 def account():

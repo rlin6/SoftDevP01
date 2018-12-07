@@ -17,7 +17,7 @@
     color: #FFF;
 }
 /* CUSTOMIZE HEADERS */
-.h1{
+.h1, h1{
     text-align: center;
     font-size: 50px;
     color: #78CAD2;
@@ -32,10 +32,16 @@ img{
     text-align: center;
 }
 .info{
-    transform: translateY(50%)
+    transform: translateY(5%)
 }
 .track{
     text-align: left;
+}
+.account{
+    transform: translateY(2%)
+}
+.info .card{
+    border: 5px solid #A1D2CE;
 }
 form{
     text-align: center;

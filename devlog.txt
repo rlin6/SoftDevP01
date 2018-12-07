@@ -210,3 +210,8 @@ sophiaX -- 2018-12-06 11:10PM
 - updated bootstrap to V4
   - changed base.html and custom.css accordingly for the navbar
 ==============================================================
+
+sophiaX -- 2018-12-07 12:15PM
+--------------------------------------------------------------
+- updated info.html and custom.css
+==============================================================

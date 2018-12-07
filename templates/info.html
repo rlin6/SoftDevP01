@@ -4,33 +4,32 @@
 
 {% block body %}
 <div class = "info">
-
+  <h1> Info </h1>
   <div class="row">
+    <div class="col-sm-6">    
+      <div class="card">
+	<div class="card-body">
+	  <div class="card-body">
+	    <h1> Weather </h1>
+	    <p class="card-text"> {{day}} </p>
+	  </div>
+	  <img-fluid class="card-img-top" src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png" alt="Card image cap">
+	</div>
+      </div>
+    </div>
     <div class="col-sm-6">
       <div class="card">
 	<div class="card-body">
 	  <img class="card-img-top" src="..." alt="Card image cap">
 	  <div class="card-body">
-	    <h5 class="card-title">Search Places</h5>
+	    <h1>Places Nearby</h1>
 	    <p class="card-text">
 	      {% for each in text %}
-	      {{each}}<br>
+	      {{each}}
+	      <button type="button" class="btn btn-sm btn-outline-info">Save</button><br>
 	      {% endfor %}
 	    </p>
 	  </div>
-	</div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">    
-    <div class="card">
-      <div class="card-body">
-	<img class="card-img-top" src="..." alt="Card image cap">
-	<div class="card-body">
-	  <h5 class="card-title">Weather</h5>
-	  <p class="card-text">
-	    {{day}}	
-	  </p>
 	</div>
       </div>
     </div>

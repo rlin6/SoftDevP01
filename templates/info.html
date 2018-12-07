@@ -28,15 +28,16 @@
 	    <h1>Places Nearby</h1>
 	    <p class="card-text">
 	      {% for each in text %}
-	      {{each}}
+	      {{each['displayString']}}
 	      <form action="/save" id="info">
 	      	<input type="hidden" name="low" value="{{low}}">
 	      	<input type="hidden" name="high" value="{{high}}">
 	      	<input type="hidden" name="curr" value="{{curr}}">
 	      	<input type="hidden" name="summary" value="{{summary}}">
-	      	<input type="hidden" name="place" value="{{each}}">
+	      	<input type="hidden" name="address" value="{{each['displayString']}}">
+	      	<input type="hidden" name="place" value="{{each['name']}}">
+	      	<input type="submit" name="save" value="Save">
 	      </form>
-	      <button type="button" class="btn btn-sm btn-outline-info" form="info">Save</button><br>
 	      {% endfor %}
 	    </p>
 	  </div>

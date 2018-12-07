@@ -147,7 +147,12 @@ def info():
     print(weather)
     if description == []:
         description=["There are no registered attractions at this current location."]
-    return render_template("info.html",text = description,day=obj['hourly']['summary'], SESSION = loggedIn())
+    summary=obj['hourly']['summary']
+    data = obj['daily']['data'][0]
+    low = data['temperatureMin']
+    high = data['temperatureMax']
+    
+    return render_template("info.html",text = description,day=summary, SESSION = loggedIn())
 
 @app.route("/account")
 def account():

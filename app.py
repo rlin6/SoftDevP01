@@ -177,8 +177,6 @@ def save():
     adders.add_save(user,times,lat,lon,address,summary,high,low,alerts,place)
     return redirect("/account")
 
-
-
 @app.route("/update")
 def update():
     
@@ -186,6 +184,22 @@ def update():
     global currLong
 
     refresh()
+
+    return redirect("/track")
+
+@app.route("/demo")
+def demo():
+
+    global currLat
+    global currLong
+
+    if currLat != str(40.712775) and currLong != str(-74.005973):
+        currLat = str(40.712775) 
+        currLong = str(-74.005973)
+
+    else: 
+
+        refresh()
 
     return redirect("/track")
 

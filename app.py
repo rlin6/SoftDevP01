@@ -151,8 +151,8 @@ def info():
     data = obj['daily']['data'][0]
     low = data['temperatureMin']
     high = data['temperatureMax']
-    
-    return render_template("info.html",text = description, day = summary, SESSION = loggedIn())
+    curr = obj['currently']['temperature']
+    return render_template("info.html",lat = currLat, long = currLong, text = description, summary = summary, low = low, high = high, curr = curr, SESSION = loggedIn())
 
 @app.route("/account")
 def account():

@@ -196,3 +196,17 @@ sophiaX -- 2018-12-06 08:16PM
 --------------------------------------------------------------
 - edited css file, signup, and login pages
 ==============================================================
+
+rickyL -- 2018-12-06 10:35PM
+--------------------------------------------------------------
+- Debugging: 
+Gave coordinates to unlogged in users and used firstTrack to prevent them from using info the first time
+Fixed flashing 
+Fixed displaying user name in account with or without saved entries
+==============================================================
+
+sophiaX -- 2018-12-06 11:10PM
+--------------------------------------------------------------
+- updated bootstrap to V4
+  - changed base.html and custom.css accordingly for the navbar
+==============================================================

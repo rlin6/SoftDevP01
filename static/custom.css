@@ -17,7 +17,7 @@
     color: #FFF;
 }
 /* CUSTOMIZE HEADERS */
-.h1, h1{
+.h1{
     text-align: center;
     font-size: 50px;
     color: #78CAD2;
@@ -25,23 +25,26 @@
 }
 /* CUSTOMIZE BODY */
 img{
+    margin-top: 10px;
+    margin-bottom: 20px;
     width: 100%;
-    height: auto;
+    height: auto;x
 }
 .body{
     text-align: center;
 }
-.info{
-    transform: translateY(5%)
+.login, .signup{
+    transform: translateY(10%);
 }
 .track{
+    transform: translateY(2%);
     text-align: left;
 }
 .account{
-    transform: translateY(2%)
+    transform: translateY(2%);
 }
 .info .card{
-    border: 5px solid #A1D2CE;
+    border: 5px solid #5497A7;
 }
 form{
     text-align: center;

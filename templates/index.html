@@ -3,6 +3,7 @@
 {% block title %} Login {% endblock %}
 
 {% block body %}
+<div class="login">
 <div class = "h1"> Login </div>
 <form action = "/auth" method = "POST">
   <p>Username: <input type = "text" name = "user" required></p>
@@ -14,4 +15,5 @@
 {% set msgs = get_flashed_messages() %}
 {% for each in msgs%}
 {{each}}
+</div>
 {% endfor %}

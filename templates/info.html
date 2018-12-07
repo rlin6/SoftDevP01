@@ -4,28 +4,33 @@
 
 {% block body %}
 <div class = "info">
-  <h1> Info </h1>
+  <br>
+  <div class="h1"> Info </div>
+  <br>
   <div class="row">
     <div class="col-sm-6">    
       <div class="card">
 	<div class="card-body">
 	  <div class="card-body">
-	    <h1> Weather </h1>
+	    <div class="h1"> Weather </div>
 	    <p class="card-text"> {{summary}} </p>
 	    <p class="card-text"> current temperature: {{curr}}</p>
 	    <p class="card-text"> low temperature: {{low}}</p>
 	    <p class="card-text"> high temperature: {{high}}</p>
+	    <div class="container">
+	      <div class="col-md-4 px-0">
+		<a href="https://darksky.net/poweredby/"><img src="https://darksky.net/dev/img/attribution/poweredby-oneline.png" img-lg></a>
+	      </div>
+	    </div>
 	  </div>
-	  <img-fluid class="card-img-top" src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png" alt="Card image cap">
 	</div>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="card">
 	<div class="card-body">
-	  <img class="card-img-top" src="..." alt="Card image cap">
 	  <div class="card-body">
-	    <h1>Places Nearby</h1>
+	    <div class="h1">Places Nearby</div>
 	    <p class="card-text">
 	      {% for each in text %}
 	      {{each['displayString']}}
@@ -49,3 +54,5 @@
 </div>
 
 {% endblock %}
+
+

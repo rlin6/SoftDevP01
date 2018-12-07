@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/custom.css">
 
     {% block head %}
@@ -13,48 +13,42 @@
     {% endblock %}
   </head>
 
-  <body>    
-    {% block navbar %}
-    <nav class="navbar navbar-default">
-      <!-- NAVBAR-FIXED-TOP -->
-      <div class="container-fluid">
-	<div class="navbar-header">
-	  <a class="navbar-brand" >ISS World Tour</a>
-	</div>
-	<div class="nav navbar-nav">
-	  <ul class="nav navbar-nav">
-	    <li><a href="track">Tracking</a></li>
-	    <li><a href="info">Info</a></li>
-	  </ul>
-	</div>
-	
-	<ul class="nav navbar-nav navbar-right">
-	  <!-- REGISTER-AND-LOGIN-ICONS -->
-	  {% if not SESSION %}
-	  <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	  <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  {% endif %}
-	  <!-- ACCOUNT-AND-LOGOUT-ICONS -->
-	  {% if SESSION %}
-	  <li><a href="account"><span class="glyphicon glyphicon-user"></span> Account</a></li>
-	  <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-	  {% endif %}
-	  <!-- REFRESH -->
-	  <li><a href="update"><span class="glyphicon glyphicon-refresh"></span> </a></li>
-	</ul>
+  {% block navbar %}
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand">ISS World Tour</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+	<a class="nav-item nav-link" href="track">Tracking</a>
+	<a class="nav-item nav-link" href="info">Info</a>
       </div>
-    </nav>
-    {% endblock %}
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <!-- REGISTER-AND-LOGIN-ICONS -->
+      {% if not SESSION %}
+      <a class="nav-item nav-link" href="signup">Sign Up</a>
+      <a class="nav-item nav-link" href="/">Login</a>
+      {% endif %}
+      <!-- ACCOUNT-AND-LOGOUT-ICONS -->
+      {% if SESSION %}
+      <a class="nav-item nav-link" href="account">Account</a>
+      <a class="nav-item nav-link" href="logout">Logout</a>
+      {% endif %}
+      <!-- REFRESH -->
+      <a class="nav-item nav-link" href="update">Refresh</a>
+    </ul>
+  </nav>
+  {% endblock %}
 
+  <body>    
     <!-- PAGE-CONTENTS -->
     <div class = "container-fluid">
       <div class = "body">
-      {% block body %}
-      {% endblock %}
+	{% block body %}
+	{% endblock %}
       </div>
     </div>
   </body>
-  
+
   <footer class = "footer">
     <div class = "container">
       {% block footer %}

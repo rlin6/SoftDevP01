@@ -10,4 +10,12 @@
   <p>Confirmation: <input type = "password" name = "conf" required></p>
   <p><input type = "submit" value = "Submit" name = "sub1"></p>
 </form>
+
+{% set msgs = get_flashed_messages() %}
+{% for each in msgs%}
+{{each}}
+{% endfor %}
+
 {% endblock %}
+
+

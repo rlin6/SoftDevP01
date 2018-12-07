@@ -90,7 +90,7 @@ def authen():
 
     if "conf" in request.form.keys():
         message = auth.register(request.form['user'], request.form['pwd'], request.form['conf'])
-
+        
     else: message = auth.login(request.form['user'], request.form['pwd'])
 
     if message in ["Account creation successful", "Login Successful"]:
@@ -100,10 +100,14 @@ def authen():
 
     else:
         flash(message)
+        print(message)
         return redirect(request.referrer or '/')
 
 @app.route("/track")
 def track():
+
+    if not loggedIn():
+        refresh()
 
     global currLong
     global currLat
@@ -126,7 +130,7 @@ def info():
     weather = "https://api.darksky.net/forecast/"+secondkey+"/"+currLat+","+currLong
     response = urllib.request.urlopen(weather)
     obj = json.loads(response.read())
-    print (weather)
+    print(weather)
     if description == []:
         description=["There are no registered attractions at this current location."]
     return render_template("info.html",text = description,day=obj['hourly']['summary'], SESSION = loggedIn())
@@ -139,7 +143,7 @@ def account():
     
     user = session['user']
     saves = getters.get_saves(user)
-    return render_template("account.html", SESSION = loggedIn(), saves = saves)
+    return render_template("account.html", SESSION = loggedIn(), saves = saves, user = session['user'])
 
 @app.route("/save")
 def save():

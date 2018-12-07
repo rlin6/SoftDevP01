@@ -10,7 +10,7 @@ c = db.cursor()
 command = "CREATE TABLE IF NOT EXISTS accts(userid INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT)"
 c.execute(command)
 
-command = "CREATE TABLE IF NOT EXISTS saves(user TEXT, times TEXT, lat TEXT, long TEXT, address TEXT, summary TEXT, high TEXT, low TEXT, alerts TEXT, attraction TEXT)"
+command = "CREATE TABLE IF NOT EXISTS saves(user TEXT, times TEXT, lat TEXT, long TEXT, address TEXT, summary TEXT, high TEXT, low TEXT, curr TEXT, attraction TEXT)"
 c.execute(command)
 
 command = "CREATE TABLE IF NOT EXISTS achievements(user TEXT, accomplishment TEXT)"

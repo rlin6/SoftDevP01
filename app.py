@@ -133,7 +133,7 @@ def info():
     global currLong
     global firstTrack
 
-    if firstTrack:
+    if firstTrack and not loggedIn():
         return redirect('/track')
 
     data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + currLong + "%2C" + currLat + "%2C1000"
@@ -177,9 +177,9 @@ def save():
     summary = info['summary']
     high = info['high']
     low = info['low']
-    alerts = info['alerts']
+    curr = info['curr']
     place = info['place']
-    adders.add_save(user,times,lat,lon,address,summary,high,low,alerts,place)
+    adders.add_save(user,times,lat,lon,address,summary,high,low,curr,place)
     return redirect("/account")
 
 @app.route("/update")

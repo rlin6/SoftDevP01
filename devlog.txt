@@ -181,6 +181,12 @@ mohammedU -- 2018-12-06 12:10PM
 - css-ified accounts page
 ==============================================================
 
+rickyL -- 2018-12-06 12:35PM
+--------------------------------------------------------------
+- Properly added jinja to account page 
+- Fixed problem with logging out and accessing account page when not logged in
+==============================================================
+
 mohammedU -- 2018-12-06 04:45PM
 --------------------------------------------------------------
 - Added comments to util files

@@ -1,5 +1,5 @@
 # SoftDevP01
-Project 01 for Software Development: ISS World Tour
+Project 01 for Software Development Period 6: ISS World Tour
 
 BooStRadley Roster:
 
@@ -11,15 +11,13 @@ Mohammed Uddin
 
 Sophia Xia
 
-Period 6 Software Development
-
 ## Overview 
 
-ISS World Tour uses the coordinates of the International Space Station to display its location on a map. The website also shows you the weather conditions in the area and nearby attractions. As the user, you can save the location, weather, or attractions to try to earn achievements. You are able to use the site without signing up, but you would not be able to save anything. 
+ISS World Tour uses the coordinates of the International Space Station to display its location on a map. The website also shows you the weather conditions in the area and nearby attractions. As the user, you can save the location, weather, attractions, and other information when exploring the world. You are able to use the site without signing up and logging in, but you would not be able to save anything. 
 
 ## Site Guide 
 
-After going on the site, you have the option to signup, sign in, or go straight to the site. Signup lets you create an account and sign in logs you in. If you are not logged in, you can view the tracking page where you can see the ISS location, view the weather there, and look at the attractions. If you are logged in, you can do all of this in addition to saving the details to your account page. 
+After going on the site, you have the option to signup, sign in, or go straight to the site through the nav bar. Signup lets you create an account and sign in logs you in. If you are not logged in, you can view the tracking page where you can see the ISS location, view the weather there, and look at the attractions. If you are logged in, you can do all of this in addition to saving the details to your account page. 
 
 ## API Keys
 
@@ -74,10 +72,22 @@ pip3 install flask
 
 ## Running the app
 
-After cloning the repository from github, activate your virtual environment. Move into the repository and then run the program by using the following command:
+After cloning the repository from github, activate your virtual environment with:
+
+```
+. /dirOfVE/bin/activate 
+```
+
+or
+
+```
+source /dirOfVE/scripts/activate
+```
+
+Move into the repository and then run the program by using the following command:
 
 ```
 python app.py
 ```
 
-Then head to localhost:5000 or the given ip link in the terminal 
+Then head to localhost:5000 or the given ip link in the terminal. 

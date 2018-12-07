@@ -3,6 +3,7 @@
 import json
 import os
 import urllib
+import datetime
 
 from flask import Flask, render_template, session, redirect, request, url_for, flash
 
@@ -21,6 +22,7 @@ with open("data/keys.json") as f:
 amount = 10 #number of places to return
 currLat = ''
 currLong = ''
+times = ''
 firstTrack = True
 
 #determines if user is logged in or not
@@ -50,7 +52,8 @@ def refresh():
 
     global currLat
     global currLong
-    
+    global times
+
     #print( currLat)
     currLat = lat
     #print(currLat)
@@ -58,6 +61,10 @@ def refresh():
     #print(currLong)
     currLong = long
     #print(currLong)
+    
+    times = datetime.datetime.now()
+
+
 
 #the "homepage" of our website(redirects to the ISS tracking page if already logged in)    
 @app.route("/")
@@ -164,7 +171,7 @@ def info():
     curr = obj['currently']['temperature']
     return render_template("info.html", text = description, summary = summary, low = low, high = high, curr = curr, SESSION = loggedIn())
 
-#
+#shows saved information of user
 @app.route("/account")
 def account():
 
@@ -175,18 +182,20 @@ def account():
     saves = getters.get_saves(user)
     return render_template("account.html", SESSION = loggedIn(), saves = saves, user = session['user'])
 
+#saves information into the database
 @app.route("/save")
 def save():
 
     global currLat
     global currLong
+    global times
 
     info = request.args
     if 'user' not in session:
         return redirect('/')
 	#saves all info from location to database
     user = session['user']
-    times = info['times']
+    times = times
     lat = currLat
     lon = currLong
     address = info['address']
@@ -204,6 +213,7 @@ def update():
     
     global currLat
     global currLong
+    global times
 
     refresh()
 
@@ -215,11 +225,12 @@ def demo():
 
     global currLat
     global currLong
+    global times
 
     if currLat != str(40.712775) and currLong != str(-74.005973):
         currLat = str(40.712775) 
         currLong = str(-74.005973)
-
+        times = datetime.datetime.now()
     else: 
 
         refresh()

@@ -160,9 +160,6 @@ def save():
     return redirect("/account")
 
 
-    return redirect("/info")
-
-
 
 @app.route("/update")
 def update():

@@ -11,6 +11,7 @@ from util import auth, adders, getters
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32)
+#obtains keys to use from key database
 with open("data/keys.json") as f:
     data = json.loads(f.read())
     key=data['map_key']
@@ -22,6 +23,7 @@ currLat = ''
 currLong = ''
 firstTrack = True
 
+#determines if user is logged in or not
 def loggedIn():
 
     if 'user' in session:
@@ -56,7 +58,8 @@ def refresh():
     #print(currLong)
     currLong = long
     #print(currLong)
-    
+
+#the "homepage" of our website(redirects to the ISS tracking page if already logged in)    
 @app.route("/")
 def index():
 
@@ -65,6 +68,7 @@ def index():
 
     return render_template("index.html", SESSION = loggedIn())
 
+#logs out user
 @app.route("/logout")
 def logout():
 
@@ -76,6 +80,7 @@ def logout():
         session.pop('user')
     return redirect('/')
 
+#signs user into website and redirects them to the ISS tracking page
 @app.route("/signup")
 def signup():
 
@@ -83,7 +88,7 @@ def signup():
         return redirect('/track')
 
     return render_template("signup.html", SESSION = loggedIn())
-
+#sends user to login screen if they are not logged in or sends user to ISS tracking page if account is created 
 @app.route("/auth", methods = ['POST','GET'])
 def authen():
 
@@ -110,6 +115,7 @@ def authen():
         print(message)
         return redirect(request.referrer or '/')
 
+#ISS tracking page
 @app.route("/track")
 def track():
 
@@ -126,16 +132,17 @@ def track():
 
     return render_template("track.html", lat = currLat, lon = currLong, image = base, SESSION = loggedIn())
 
+#ISS Tracking Page
 @app.route("/info")
 def info():
 
     global currLat
     global currLong
     global firstTrack
-
+	#User must first check tracking before looking at info
     if firstTrack:
         return redirect('/track')
-
+	#grabs data from location
     data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + currLong + "%2C" + currLat + "%2C1000"
     response = urllib.request.urlopen(data)
     info = json.loads(response.read())
@@ -145,15 +152,17 @@ def info():
     response = urllib.request.urlopen(weather)
     obj = json.loads(response.read())
     print(weather)
+	#if no attractions found, print the following
     if description == []:
         description=["There are no registered attractions at this current location."]
+	#grabs info on current day
     summary=obj['hourly']['summary']
     data = obj['daily']['data'][0]
     low = data['temperatureMin']
     high = data['temperatureMax']
-    
     return render_template("info.html",text = description, day = summary, SESSION = loggedIn())
 
+#
 @app.route("/account")
 def account():
 
@@ -169,6 +178,7 @@ def save():
     info = request.args
     if 'user' not in session:
         return redirect('/')
+	#saves all info from location to database
     user = session['user']
     times = info['times']
     lat = info['lat']
@@ -182,6 +192,7 @@ def save():
     adders.add_save(user,times,lat,lon,address,summary,high,low,alerts,place)
     return redirect("/account")
 
+#updates page
 @app.route("/update")
 def update():
     
@@ -192,6 +203,7 @@ def update():
 
     return redirect("/track")
 
+#demo page
 @app.route("/demo")
 def demo():
 

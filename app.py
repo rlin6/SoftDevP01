@@ -139,13 +139,9 @@ def info():
     global currLat
     global currLong
     global firstTrack
-<<<<<<< HEAD
-	#User must first check tracking before looking at info
-    if firstTrack:
-=======
 
+	#User must first check tracking before looking at info
     if firstTrack and not loggedIn():
->>>>>>> b53ebf3bd641137320774e29b909cac5ff8a48da
         return redirect('/track')
 	#grabs data from location
     data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + currLong + "%2C" + currLat + "%2C1000"
@@ -165,12 +161,8 @@ def info():
     data = obj['daily']['data'][0]
     low = data['temperatureMin']
     high = data['temperatureMax']
-<<<<<<< HEAD
-    return render_template("info.html",text = description, day = summary, SESSION = loggedIn())
-=======
     curr = obj['currently']['temperature']
-    return render_template("info.html",lat = currLat, long = currLong, text = description, summary = summary, low = low, high = high, curr = curr, SESSION = loggedIn())
->>>>>>> b53ebf3bd641137320774e29b909cac5ff8a48da
+    return render_template("info.html", text = description, summary = summary, low = low, high = high, curr = curr, SESSION = loggedIn())
 
 #
 @app.route("/account")
@@ -185,14 +177,18 @@ def account():
 
 @app.route("/save")
 def save():
+
+    global currLat
+    global currLong
+
     info = request.args
     if 'user' not in session:
         return redirect('/')
 	#saves all info from location to database
     user = session['user']
     times = info['times']
-    lat = info['lat']
-    lon = info['long']
+    lat = currLat
+    lon = currLong
     address = info['address']
     summary = info['summary']
     high = info['high']

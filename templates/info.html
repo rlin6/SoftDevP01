@@ -11,7 +11,10 @@
 	<div class="card-body">
 	  <div class="card-body">
 	    <h1> Weather </h1>
-	    <p class="card-text"> {{day}} </p>
+	    <p class="card-text"> {{summary}} </p>
+	    <p class="card-text"> current temperature: {{curr}}</p>
+	    <p class="card-text"> low temperature: {{low}}</p>
+	    <p class="card-text"> high temperature: {{high}}</p>
 	  </div>
 	  <img-fluid class="card-img-top" src="https://darksky.net/dev/img/attribution/poweredby-oneline-darkbackground.png" alt="Card image cap">
 	</div>
@@ -26,7 +29,13 @@
 	    <p class="card-text">
 	      {% for each in text %}
 	      {{each}}
-	      <button type="button" class="btn btn-sm btn-outline-info">Save</button><br>
+	      <form action="/save" id="info">
+	      	<input type="hidden" name="low" value="{{low}}">
+	      	<input type="hidden" name="high" value="{{high}}">
+	      	<input type="hidden" name="curr" value="{{curr}}">
+	      	<input type="hidden" name="summary" value="{{summary}}">
+	      </form>
+	      <button type="button" class="btn btn-sm btn-outline-info" form="info">Save</button><br>
 	      {% endfor %}
 	    </p>
 	  </div>

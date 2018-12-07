@@ -29,9 +29,22 @@ img{
 }
 .body{
     text-align: center;
-    margin-top: 75px;
+}
+.info{
+    transform: translateY(50%)
+}
+.track{
+    text-align: left;
 }
 form{
     text-align: center;
     margin-top: 75px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 10px;
 }

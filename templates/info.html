@@ -4,12 +4,37 @@
 
 {% block body %}
 <div class = "info">
-  <div class = "h1"> Search Places </div>
-  {% for each in text %}
-  {{each}}<br>
-  {% endfor %}
-  <div class = "h1"> Weather </div>
-  {{day}}
-  <br>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+	<div class="card-body">
+	  <img class="card-img-top" src="..." alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">Search Places</h5>
+	    <p class="card-text">
+	      {% for each in text %}
+	      {{each}}<br>
+	      {% endfor %}
+	    </p>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">    
+    <div class="card">
+      <div class="card-body">
+	<img class="card-img-top" src="..." alt="Card image cap">
+	<div class="card-body">
+	  <h5 class="card-title">Weather</h5>
+	  <p class="card-text">
+	    {{day}}	
+	  </p>
+	</div>
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

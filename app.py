@@ -20,8 +20,10 @@ with open("data/keys.json") as f:
 amount = 10 #number of places to return
 currLat = ''
 currLong = ''
+firstTrack = True
 
 def loggedIn():
+
     if 'user' in session:
         return True
     return False
@@ -65,6 +67,11 @@ def index():
 
 @app.route("/logout")
 def logout():
+
+    global firstTrack
+
+    firstTrack = True
+
     if 'user' in session:
         session.pop('user')
     return redirect('/')
@@ -106,8 +113,11 @@ def authen():
 @app.route("/track")
 def track():
 
-    if not loggedIn():
+    global firstTrack
+
+    if (not loggedIn()) and firstTrack:
         refresh()
+        firstTrack = False
 
     global currLong
     global currLat
@@ -121,6 +131,10 @@ def info():
 
     global currLat
     global currLong
+    global firstTrack
+
+    if firstTrack:
+        return redirect('/track')
 
     data = "https://www.mapquestapi.com/search/v4/place?sort=distance&feedback=false&key=" + key + "&circle=" + currLong + "%2C" + currLat + "%2C1000"
     response = urllib.request.urlopen(data)

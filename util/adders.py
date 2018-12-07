@@ -25,4 +25,4 @@ def add_achievement(user,accomplishment):
     db.close()
     return True
 
-print(add_save('123','time','lat','long','address','summary','high','low','alerts','attractions'))
+#print(add_save('123','time','lat','long','address','summary','high','low','alerts','attractions'))

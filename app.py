@@ -141,6 +141,29 @@ def account():
     saves = getters.get_saves(user)
     return render_template("account.html", SESSION = loggedIn(), saves = saves)
 
+@app.route("/save")
+def save():
+    info = request.args
+    if 'user' not in session:
+        return redirect('/')
+    user = session['user']
+    times = info['times']
+    lat = info['lat']
+    lon = info['long']
+    address = info['address']
+    summary = info['summary']
+    high = info['high']
+    low = info['low']
+    alerts = info['alerts']
+    place = info['place']
+    adders.add_save(user,times,lat,lon,address,summary,high,low,alerts,place)
+    return redirect("/account")
+
+
+    return redirect("/info")
+
+
+
 @app.route("/update")
 def update():
     
